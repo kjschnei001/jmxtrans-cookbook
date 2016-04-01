@@ -21,7 +21,7 @@
     {
      "outputWriters": [
       {
-       "@class": "com.googlecode.jmxtrans.model.output.GraphiteWriter",
+       "@class": "<%= @writer_class %>",
        "settings": {
         "typeNames": <%= if query.has_key?('type_name') then query['type_name'].to_s else [ "name" ] end%>,
         "host": "<%= @graphite_host %>",
@@ -38,5 +38,5 @@
     ]
  }
 <% end -%>
-] 
+]
 }
