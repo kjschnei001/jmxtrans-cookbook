@@ -4,7 +4,7 @@
 #
 # Recipe to install jmxtrans using tar.gz
 #
-# Copyright 2015, Biju Nair & Contributors  
+# Copyright 2015, Biju Nair & Contributors
 #
 # Apache 2.0 license
 #
@@ -47,7 +47,7 @@ ark "jmxtrans" do
   group node['jmxtrans']['user']
 end
 #
-# New resource to change the mode of jmxtrans.sh so that service can 
+# New resource to change the mode of jmxtrans.sh so that service can
 # start successfully. Issue #17
 #
 file "#{node['jmxtrans']['home']}/bin/jmxtrans.sh" do
@@ -103,7 +103,8 @@ template "#{node['jmxtrans']['json_dir']}/set1.json" do
             :servers => servers,
             :graphite_host => node['jmxtrans']['graphite']['host'],
             :graphite_port => node['jmxtrans']['graphite']['port'],
-            :root_prefix => node['jmxtrans']['root_prefix']
+            :root_prefix => node['jmxtrans']['root_prefix'],
+            :writer_class => node['jmxtrans']['writer_class']
             )
 end
 
@@ -120,4 +121,3 @@ service "jmxtrans" do
   supports :restart => true, :status => true, :reload => true
   action [ :enable, :start]
 end
-
