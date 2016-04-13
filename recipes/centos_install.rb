@@ -63,7 +63,7 @@ template "#{node['jmxtrans']['json_dir']}/set1.json" do
   variables(
             :servers => servers,
             :output_host => node['jmxtrans']['output']['host'],
-            :output_handler => node['jmxtrans']['output']['handler']
+            :output_handler => node['jmxtrans']['output']['handler'],
             :writer_class => node['jmxtrans']['writer_class']
             )
 end
