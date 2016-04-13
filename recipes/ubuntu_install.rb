@@ -4,7 +4,7 @@
 #
 # Install jmxtrans on Ubuntu using deb package
 #
-# Copyright 2015, Biju Nair & Contributors  
+# Copyright 2015, Biju Nair & Contributors
 #
 # Apache 2.0 license
 #
@@ -62,9 +62,9 @@ template "#{node['jmxtrans']['json_dir']}/set1.json" do
   notifies :restart, "service[jmxtrans]", :delayed
   variables(
             :servers => servers,
-            :graphite_host => node['jmxtrans']['graphite']['host'],
-            :graphite_port => node['jmxtrans']['graphite']['port'],
-            :root_prefix => node['jmxtrans']['root_prefix']
+            :output_host => node['jmxtrans']['output']['host'],
+            :output_handler => node['jmxtrans']['output']['handler'],
+            :writer_class => node['jmxtrans']['writer_class']
             )
 end
 
@@ -81,4 +81,3 @@ service "jmxtrans" do
   supports :restart => true, :status => true, :reload => true
   action [ :enable, :start]
 end
-

@@ -101,9 +101,8 @@ template "#{node['jmxtrans']['json_dir']}/set1.json" do
   notifies :restart, "service[jmxtrans]", :delayed
   variables(
             :servers => servers,
-            :graphite_host => node['jmxtrans']['graphite']['host'],
-            :graphite_port => node['jmxtrans']['graphite']['port'],
-            :root_prefix => node['jmxtrans']['root_prefix'],
+            :output_host => node['jmxtrans']['output']['host'],
+            :output_handler => node['jmxtrans']['output']['handler']
             :writer_class => node['jmxtrans']['writer_class']
             )
 end

@@ -22,12 +22,8 @@
      "outputWriters": [
       {
        "@class": "<%= @writer_class %>",
-       "settings": {
-        "typeNames": [   "name" ],
-        "host": "<%= @graphite_host %>",
-        "port": <%= @graphite_port %>,
-        "rootPrefix": "<%= @root_prefix %>"
-       }
+       "host": "<%= @output_host %>",
+       "handler": "<%= @output_handler %>"
       }
      ],
      "resultAlias": "<%= query['result_alias'] %>",

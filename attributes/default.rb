@@ -11,8 +11,8 @@ default['jmxtrans']['heap_size'] = '512'
 default['jmxtrans']['run_interval'] = '60'
 default['jmxtrans']['log_level'] = 'debug'
 default['jmxtrans']['writer_class'] = 'com.googlecode.jmxtrans.model.output.SensuWriter'
-default['jmxtrans']['graphite']['host'] = 'localhost'
-default['jmxtrans']['graphite']['port'] = '3030'
+default['jmxtrans']['output']['host'] = 'localhost'
+default['jmxtrans']['output']['handler'] = 'influx'
 
 default['jmxtrans']['servers'] = []
 #
